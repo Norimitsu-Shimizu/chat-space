@@ -54,7 +54,7 @@ Things you may want to cover:
 
 ### Association
 -has_many :members, dependent: :destroy
--has_many :users, through: :members dependent: :destroy
+-has_many :users, through: :members, dependent: :destroy
 -has_many :messages, dependent: :destroy
 
 
