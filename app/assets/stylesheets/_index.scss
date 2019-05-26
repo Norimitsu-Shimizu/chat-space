@@ -16,9 +16,9 @@ html{
         font-weight: lighter;
       }
       
-      .wrapper {
+      wrapper {
         
-        .left-container {
+        left-container {
           width: 300px;
           color: $white;
           float: left;
@@ -71,7 +71,7 @@ html{
           
         }
       
-        .right-container {
+        right-container {
           float: left;
           width: calc(100vw - 300px);
             .right-header {
