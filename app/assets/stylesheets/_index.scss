@@ -23,7 +23,7 @@ html{
           color: $white;
           float: left;
           
-            .left-header {
+            left-header {
               background-color: #253141;
               height: 100px;
               padding: 0px 20px;
@@ -51,7 +51,7 @@ html{
                   }
                 }
             }
-            .left-contents {
+            left-contents {
               background-color: #2f3e51;
               padding: 20px 20px 0px;
               height:  calc(100vh - 100px);
@@ -74,7 +74,7 @@ html{
         right-container {
           float: left;
           width: calc(100vw - 300px);
-            .right-header {
+            right-header {
               padding: 0px 40px;
               border-bottom: solid 1px #eeeeee;
               height: 100px;
@@ -107,7 +107,7 @@ html{
                 }
             }
       
-            .right-contents {
+            right-contents {
               background-color: #fafafa;
               height: calc(100vh - 190px);
               padding: 0px 40px;
@@ -135,7 +135,7 @@ html{
                 }
             }
       
-            .right-message {
+            right-message {
               background-color: #ddd;
               height: 90px;
               padding: 10px 40px;

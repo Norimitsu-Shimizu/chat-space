@@ -1,8 +1,8 @@
 %header.header グループを作成しました
 %wrapper
   %left-container
-    %div.left-header
-      %div.left-header__container
+    %left-header
+      %left-header__container
         %p.left-header__container__group seo
         %ul.left-header__container__menu
           %li.left-header__container__menu__new
@@ -11,36 +11,36 @@
           %li.left-header__container__menu__edit
             %a(href="#")
               %i.fa.fa-cog 
-    %div.left-contents
-      %div.left-contents__content
+    %left-contents
+      %left-contents__content
         %p.left-contents__content__name test-group
         %p.left-contents__content__message さようなら
-      %div.left-contents__content
+      %left-contents__content
         %p.left-contents__content__name sample-group
         %p.left-contents__content__message hello!
-      %div.left-contents__content
+      %left-contents__content
         %p.left-contents__content__name example
         %p.left-contents__content__message まだメッセージがありません
   %right-container
-    %div.right-header
-      %div.right-header__title
+    %right-header
+      %right-header__title
         %p.right-header__title__name test-group
         %p.right-header__title__member Member : sample
       %a.right-header__edit(href="#")
-        %div.right-header__edit__botton Edit
-    %div.right-contents
-      %div.right-contents__first
-        %div.right-contents__first__user
+        %right-header__edit__botton Edit
+    %right-contents
+      %right-contents__first
+        %right-contents__first__user
           %p.right-contents__first__user__name test-user
           %p.right-contents__first__user__time 2019/05/24(Fri) 18:42:32
         %p.right-contents__first__text こんにちは!
-      %div.right-contents__second
+      %right-contents__second
         %div.right-contents__second__user
           %p.right-contents__second__user__name test-user
           %p.right-contents__second__user__time 2019/05/24(Fri) 19:25:14
         %p.right-contents__second__text さようなら!
-    %div.right-message
-      %div.right-message__form
+    %right-message
+      %right-message__form
         %input.right-message__form__text(placeholder="type a message" type="text")
         %label.right-message__form__label
           %i.fa.fa-picture-o
