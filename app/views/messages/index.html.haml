@@ -1,32 +1,28 @@
-%header.header グループを作成しました
 .wrapper
   .left-container
     .left-header
       .left-header__container
-        %p.left-header__container__group seo
+        %p.left-header__container__group 
+          =current_user.name
         %ul.left-header__container__menu
           %li.left-header__container__menu__new
-            %a(href="#")
+            = link_to new_group_path do
               %i.fa.fa-edit 
           %li.left-header__container__menu__edit
-            %a(href="#")
+            = link_to edit_user_path(current_user) do
               %i.fa.fa-cog 
     .left-contents
-      .left-contents__content
-        %p.left-contents__content__name test-group
-        %p.left-contents__content__message さようなら
-      .left-contents__content
-        %p.left-contents__content__name sample-group
-        %p.left-contents__content__message hello!
-      .left-contents__content
-        %p.left-contents__content__name example
-        %p.left-contents__content__message まだメッセージがありません
+      = render @messages
   .right-container
     .right-header
       .right-header__title
-        %p.right-header__title__name test-group
-        %p.right-header__title__member Member : sample
-      %a.right-header__edit(href="#")
+        %p.right-header__title__name 
+          = @group.name
+        %p.right-header__title__member 
+          - @group.users.each do |user|
+            = user.name
+      
+      = link_to edit_group_path(@group),class: "right-header__edit" do
         .right-header__edit__botton Edit
     .right-contents
       .right-contents__first
@@ -39,11 +35,12 @@
           %p.right-contents__second__user__name test-user
           %p.right-contents__second__user__time 2019/05/24(Fri) 19:25:14
         %p.right-contents__second__text さようなら!
-    .right-message
+    .right-message    
       .right-message__form
-        %input.right-message__form__text(placeholder="type a message" type="text")
-        %label.right-message__form__label
-          %i.fa.fa-picture-o
-          %input.right-message__form__label__file(type="file")
-        %input.right-message__form__send(type="submit" value="Send")
-            
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'right-message__form__text', placeholder: 'type a message'
+          .right-message__form__label
+            = f.label :image do
+              = fa_icon 'picture-o', class: 'fa'
+              = f.file_field :image, class: 'right-message__form__label__file'
+          = f.submit 'Send', class: 'right-message__form__send'

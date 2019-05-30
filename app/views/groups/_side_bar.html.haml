@@ -1,0 +1,20 @@
+.left-container
+  .left-header
+    .left-header__container
+      %p.left-header__container__group 
+        =current_user.name
+      %ul.left-header__container__menu
+        %li.left-header__container__menu__new
+          = link_to new_group_path do
+            %i.fa.fa-edit 
+        %li.left-header__container__menu__edit
+          = link_to edit_user_path(current_user) do
+            %i.fa.fa-cog 
+  .left-contents
+    .left-contents__content
+      - current_user.groups.each do |group|
+        =link_to group_messages_path(group) do
+          .left-contents__content__name 
+            = group.name
+          .left-contents__content__message 
+            = group.show_last_message
