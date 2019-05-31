@@ -12,7 +12,13 @@
             = link_to edit_user_path(current_user) do
               %i.fa.fa-cog 
     .left-contents
-      = render @messages
+      .left-contents__content
+        - current_user.groups.each do |group|
+          =link_to group_messages_path(group) do
+            .left-contents__content__name 
+              = group.name
+            .left-contents__content__message 
+              = group.show_last_message
   .right-container
     .right-header
       .right-header__title
@@ -25,16 +31,7 @@
       = link_to edit_group_path(@group),class: "right-header__edit" do
         .right-header__edit__botton Edit
     .right-contents
-      .right-contents__first
-        .right-contents__first__user
-          %p.right-contents__first__user__name test-user
-          %p.right-contents__first__user__time 2019/05/24(Fri) 18:42:32
-        %p.right-contents__first__text こんにちは!
-      .right-contents__second
-        .right-contents__second__user
-          %p.right-contents__second__user__name test-user
-          %p.right-contents__second__user__time 2019/05/24(Fri) 19:25:14
-        %p.right-contents__second__text さようなら!
+      = render @messages
     .right-message    
       .right-message__form
         = form_for [@group, @message] do |f|
