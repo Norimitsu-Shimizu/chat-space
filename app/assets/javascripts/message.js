@@ -38,8 +38,8 @@ $(document).on('turbolinks:load',function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
+    .done(function(message){
+      var html = buildHTML(message);
       $('.right-contents').append(html);
       $('.right-message__form__text').val('');
       $('.right-message__form__label__file').val('');
