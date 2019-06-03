@@ -41,10 +41,9 @@ $(document).on('turbolinks:load',function(){
     .done(function(message){
       var html = buildHTML(message);
       $('.right-contents').append(html);
-      $('.right-message__form__text').val('');
-      $('.right-message__form__label__file').val('');
+      $('#new_message')[0].reset();
       $('.right-message__form__send').prop('disabled', false);
-      scroll()
+      scroll();
     })
     .fail(function(){
       alert('メッセージを送信できません');
