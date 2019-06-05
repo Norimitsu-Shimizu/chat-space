@@ -2,7 +2,7 @@ $(document).on('turbolinks:load',function(){
   function buildHTML(message){
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
-    var html = `<div class="right-contents__first">
+    var html = `<div class="right-contents__first" data-id='${message.id}'>
                   <div class="right-contents__first__user">
                     <div class="right-contents__first__user__name"> 
                       ${message.user_name}
@@ -49,4 +49,26 @@ $(document).on('turbolinks:load',function(){
       alert('メッセージを送信できません');
     })
   });
+
+  var reloadMessages = function(){
+    var last_message_id = $('.right-contents__first:last').data('id')
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function (messages) {
+      var insertHTML = '';
+       messages.forEach(function(message) {
+       insertHTML =  buildHTML(message)
+        $('.right-contents').append(insertHTML);
+        scroll();
+      })
+    })
+    .fail(function() {
+      ('error');
+    });
+  };
+  setInterval(reloadMessages, 5000);
 });
