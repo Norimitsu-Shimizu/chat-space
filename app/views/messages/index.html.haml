@@ -35,7 +35,7 @@
     .right-message    
       .right-message__form
         = form_for [@group, @message], {id: 'new_message'} do |f|
-          = f.text_field :content, class: 'right-message__form__text', placeholder: 'type a message'
+          = f.text_field :content, class: 'right-message__form__text', placeholder: 'メッセージを入力'
           .right-message__form__label
             = f.label :image do
               = fa_icon 'picture-o', class: 'fa'
